@@ -1,0 +1,24 @@
+package com.fpt.rentahome.Models;
+
+import lombok.*;
+import jakarta.persistence.*;
+import org.springframework.data.relational.core.mapping.Table;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Entity
+@Table(value = "client_role")
+public class ClientRole {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Client client;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Role role;
+}

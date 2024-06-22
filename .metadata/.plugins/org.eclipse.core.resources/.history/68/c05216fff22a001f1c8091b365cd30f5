@@ -1,0 +1,18 @@
+package com.fpt.rentahome.Repositories;
+
+import javax.persistence.Table;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.fpt.rentahome.Models.Admin;
+
+
+@Repository
+@Table(name="admin")
+public interface AdminRepository extends JpaRepository<Admin,Integer> {
+    Page<Admin> findAll(Pageable pageable);
+    Admin findByEmail(String email);
+}
